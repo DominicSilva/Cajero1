@@ -25,5 +25,21 @@ namespace CajeroAutomatico
             return Usuario == usuario && Clave == clave;
         }
 
+
+        public void VerMovimientos()
+        {
+            if (File.Exists(archivoMovimientosUsuario))
+            {
+                string[] movimientos = File.ReadAllLines(archivoMovimientosUsuario);
+                foreach (string movimiento in movimientos)
+                {
+                    Console.WriteLine(movimiento);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No hay movimientos para mostrar");
+            }
+        }
     }
 }
