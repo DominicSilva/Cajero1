@@ -25,5 +25,21 @@ namespace CajeroAutomatico
             return Usuario == usuario && Clave == clave;
         }
 
+        public void Retirar(double cantidad)
+        {
+            if (cantidad <= Saldo)
+            {
+                Saldo -= cantidad;
+                RegistrarMovimiento($"Retiro de ${cantidad}");
+                ActualizarSaldo();
+                Console.WriteLine($"Ha retirado {cantidad}. Su nuevo saldo es {Saldo}");
+            }
+            else
+            {
+                Console.WriteLine("Saldo insuficiente");
+            }
+        }
+
+
     }
 }
