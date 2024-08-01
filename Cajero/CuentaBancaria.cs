@@ -19,5 +19,11 @@ namespace CajeroAutomatico
             Saldo = saldo;
             archivoMovimientosUsuario = $"{usuario}_Movimientos.txt";
         }
+
+        public bool ValidarCredenciales(string usuario, string clave)
+        {
+            return Usuario == usuario && Clave == clave;
+        }
+
     }
 }
