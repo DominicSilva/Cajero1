@@ -25,6 +25,16 @@ namespace CajeroAutomatico
             return Usuario == usuario && Clave == clave;
         }
 
+        private void RegistrarMovimiento(string movimiento)
+        {
+            using (StreamWriter escriba = File.AppendText(archivoMovimientosUsuario))
+            {
+                escriba.WriteLine($"{DateTime.Now} - {movimiento}");
+            }
+        }
+
+
+
         public void Retirar(double cantidad)
         {
             if (cantidad <= Saldo)
