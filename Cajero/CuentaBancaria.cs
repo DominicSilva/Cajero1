@@ -25,5 +25,11 @@ namespace CajeroAutomatico
             return Usuario == usuario && Clave == clave;
         }
 
+
+        public void ConsultarSaldo()
+        {
+            Console.WriteLine($"Su saldo es: {Saldo}");
+        }
+
     }
 }
