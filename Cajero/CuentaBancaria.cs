@@ -25,5 +25,23 @@ namespace CajeroAutomatico
             return Usuario == usuario && Clave == clave;
         }
 
+
+        public void CambiarClave(string nuevaClave)
+        {
+            Clave = nuevaClave;
+            List<string> lineas = new List<string>();
+            string[] usuarios = File.ReadAllLines(archivoUsuarios);
+            foreach (string linea in usuarios)
+            {
+                string[] datos = linea.Split(",");
+                if (datos[0] == Usuario)
+                {
+                    datos[1] = nuevaClave;
+                    Console.WriteLine("Contraseña cambiada exitosamente.");
+                }
+                lineas.Add(string.Join(",", datos));
+            }
+            File.WriteAllLines(archivoUsuarios, lineas);
+        }
     }
 }
