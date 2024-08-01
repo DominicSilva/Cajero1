@@ -33,6 +33,21 @@ namespace CajeroAutomatico
             }
         }
 
+        private void ActualizarSaldo()
+        {
+            List<string> lineas = new List<string>();
+            string[] usuarios = File.ReadAllLines(archivoUsuarios);
+            foreach (string linea in usuarios)
+            {
+                string[] datos = linea.Split(',');
+                if (datos[0] == Usuario)
+                {
+                    datos[2] = Saldo.ToString();
+                }
+                lineas.Add(string.Join(",", datos));
+            }
+            File.WriteAllLines(archivoUsuarios, lineas);
+        }
 
 
         public void Retirar(double cantidad)
