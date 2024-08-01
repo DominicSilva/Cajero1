@@ -25,5 +25,13 @@ namespace CajeroAutomatico
             return Usuario == usuario && Clave == clave;
         }
 
+
+        public void Depositar(double cantidad)
+        {
+            Saldo += cantidad;
+            RegistrarMovimiento($"Depósito de ${cantidad}");
+            ActualizarSaldo();
+            Console.WriteLine($"Ha depositado {cantidad}. Su nuevo saldo es {Saldo}");
+        }
     }
 }
