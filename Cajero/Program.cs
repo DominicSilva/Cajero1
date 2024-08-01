@@ -10,7 +10,7 @@ namespace CajeroAutomatico
         {
             Inicio();
         }
-
+        
         public static void Inicio()
         {
             Console.WriteLine("Ingrese ID de cuenta: ");
